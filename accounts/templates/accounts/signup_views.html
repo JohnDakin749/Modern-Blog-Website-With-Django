@@ -1,0 +1,13 @@
+{% extends 'base_layout.html'%}
+
+
+{% block content %}
+   <div class="create">
+    <form action="{% url 'accounts:signup'%}" method="post">
+        {% csrf_token%}
+        {{form.as_p}}
+        <input type="submit" value="Signup">
+        <p><small>Have an account!</small><a href="{% url 'accounts:login'%}">Login</a></p>
+    </form>
+   </div>
+{% endblock %}

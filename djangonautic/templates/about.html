@@ -1,0 +1,24 @@
+{% block authentic%}
+<body>
+    <ul>
+        {% if user.is_authenticated %}
+        <li>
+            <form action="{% url 'accounts:logout'%}" method="post" >
+                {% csrf_token%}
+                <input type="submit" value="Logout">
+            </form>
+        </li>
+        <li>
+            <a href="{% url 'articles:create'%}">Create Article</a>
+        </li>
+        {% else%}
+        <li>
+            <a href="{% url 'accounts:login'%}">Login</a>
+        </li>
+        <li>
+            <a href="{% url 'accounts:signup'%}">Signup</a>
+        </li>
+        {% endif %}
+    </ul>
+</body>
+{% endblock %}
